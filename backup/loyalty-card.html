@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty Card - A&N Global</title>
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #fafafa;
+        }
+
+        .loyalty-card-container {
+            height: 1470px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .loyalty-card-container iframe {
+            border: none;
+            position: relative;
+            top: -130px;
+        }
+    </style>
+</head>
+<body>
+
+<!--
+  The container's height is now adjusted to 1470px.
+  We changed `top: -105px` to `top: -130px` to hide an extra 25px from the top.
+-->
+<div class="loyalty-card-container">
+    <iframe
+        src="https://take.cards/mMCab"
+        width="100%"
+        height="1300">
+    </iframe>
+</div>
+
+</body>
+</html>

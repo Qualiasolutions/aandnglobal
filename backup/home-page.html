@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange - A&N Global</title>
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+/* ———————————— CSS STYLES ———————————— */
+:root{
+--obsidian-black:#0a0a0a;--corporate-black:#1a1a1a;
+--pure-white:#ffffff;--pearl-white:#fafafa;--platinum-white:#f5f5f5;
+--silver-gray:#e0e0e0;--steel-gray:#666666;--charcoal-gray:#404040;
+--corporate-red:#c41e3a;--dark-red:#a01729;--bright-red:#ff1744;
+--success-green:#28a745;--dark-green:#1e7e34;
+--shadow-subtle:0 1px 3px rgba(0,0,0,.08);
+--shadow-soft:0 2px 6px rgba(0,0,0,.10);
+--shadow-medium:0 4px 12px rgba(0,0,0,.12);
+--shadow-strong:0 8px 24px rgba(0,0,0,.15);
+--gradient-corporate:linear-gradient(135deg,var(--obsidian-black)0%,var(--corporate-black)100%);
+--gradient-red:linear-gradient(135deg,var(--corporate-red)0%,var(--dark-red)100%);
+--gradient-green:linear-gradient(135deg,var(--success-green)0%,var(--dark-green)100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    color:var(--obsidian-black);
+    background:var(--pearl-white);
+    overflow-x:hidden;
+}
+
+.anbg-professional-exchange{
+font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+color:var(--obsidian-black);margin:0;background:var(--pearl-white);overflow-x:hidden;
+position: relative;
+}
+.anbg-professional-exchange *, .anbg-professional-exchange *::before, .anbg-professional-exchange *::after{
+box-sizing:border-box;
+}
+.anbg-section-divider{
+height:1px;
+background:linear-gradient(90deg,transparent 0%,var(--silver-gray)20%,var(--corporate-red)50%,var(--silver-gray)80%,transparent 100%);
+margin:0;position:relative;
+}
+.anbg-section-divider::before{
+content:'';position:absolute;top:-2px;left:50%;transform:translateX(-50%);
+width:60px;height:4px;background:var(--corporate-red);border-radius:2px;
+}
+
+/* — HERO — */
+.anbg-enhanced-hero{
+background:var(--pure-white);
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:80px 20px;
+position:relative;
+}
+.anbg-enhanced-hero-container {
+position:relative;
+z-index:2;
+}
+.anbg-hero-globe-bg {
+position:absolute;
+top: 100px;
+left:50%;
+transform:translateX(-50%);
+width:min(1600px, 130vw);
+height:auto;
+z-index:1;
+opacity:0.1;
+pointer-events:none;
+}
+.anbg-hero-globe-image {
+width:100%;
+height:auto;
+display:block;
+}
+
+.anbg-enhanced-hero-content{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1400px;margin:0 auto}
+.anbg-hero-text-section{text-align:left}
+.anbg-hero-headline{font-size:clamp(2.5rem,5vw,4rem);font-weight:700;margin-bottom:20px;letter-spacing:-.02em;line-height:1.1}
+.anbg-hero-headline .highlight{color:var(--corporate-red)}
+.anbg-hero-subtitle{font-size:1.4rem;color:var(--steel-gray);font-weight:300;margin-bottom:40px;line-height:1.6;max-width:500px}
+.anbg-hero-features{display:flex;flex-direction:column;gap:15px;margin-bottom:40px}
+.anbg-hero-feature{display:flex;align-items:center;gap:12px;color:var(--charcoal-gray);font-size:1.1rem;font-weight:500}
+.anbg-hero-feature i{color:var(--corporate-red);font-size:1.2rem}
+.anbg-hero-cta{display:flex;gap:20px;align-items:center}
+.anbg-hero-button{background:var(--gradient-red);color:var(--pure-white);padding:15px 30px;border-radius:8px;font-weight:600;font-size:1.1rem;border:none;cursor:pointer;box-shadow:var(--shadow-medium);transition:.3s}
+.anbg-hero-button:hover{background:var(--dark-red);transform:translateY(-2px);box-shadow:var(--shadow-strong)}
+.anbg-professional-live-indicator{display:inline-flex;align-items:center;gap:10px;background:var(--platinum-white);border:1px solid var(--silver-gray);padding:8px 16px;border-radius:20px;margin-left:20px}
+.anbg-professional-live-dot{width:8px;height:8px;background:var(--corporate-red);border-radius:50%;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%{opacity:1}50%{opacity:0.3}100%{opacity:1}}
+.anbg-professional-live-text{color:var(--charcoal-gray);font-weight:500;font-size:.85rem}
+.anbg-hero-contact{display:flex;gap:25px;margin-top:30px;flex-wrap:wrap}
+.anbg-hero-contact-item{display:flex;align-items:center;gap:8px;color:var(--steel-gray);font-size:.95rem;font-weight:500}
+.anbg-hero-contact-item i{color:var(--corporate-red);font-size:1rem}
+.anbg-hero-visual-section{display:flex;justify-content:center;align-items:center}
+.anbg-hero-stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;background:var(--platinum-white);border:1px solid var(--silver-gray);border-radius:12px;padding:30px;box-shadow:var(--shadow-medium)}
+.anbg-hero-stat{text-align:center;padding:20px;background:var(--pure-white);border-radius:8px;border:1px solid var(--silver-gray);transition:.3s}
+.anbg-hero-stat:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft)}
+.anbg-hero-stat-number{font-size:2rem;font-weight:700;color:var(--corporate-red);display:block;margin-bottom:5px}
+.anbg-hero-stat-label{font-size:.9rem;color:var(--steel-gray);font-weight:500;text-transform:uppercase;letter-spacing:.5px}
+
+/* — CONVERTER — */
+.anbg-professional-converter-section{
+padding:80px 20px 40px;
+background:var(--pure-white);
+position: relative;
+z-index: 2;
+}
+.anbg-professional-converter-header{text-align:center;margin-bottom:50px}
+.anbg-professional-converter-header h2{font-size:clamp(2rem,4vw,3rem);font-weight:600;margin-bottom:15px}
+.anbg-professional-converter-header p{font-size:1.1rem;color:var(--steel-gray);max-width:600px;margin:0 auto;line-height:1.6}
+.anbg-professional-converter-container{max-width:1000px;margin:0 auto;background:var(--pure-white);border-radius:12px;padding:40px;box-shadow:var(--shadow-medium);border:1px solid var(--silver-gray)}
+.anbg-professional-converter-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:30px;align-items:center}
+.anbg-professional-input-section{display:flex;flex-direction:column;gap:12px}
+.anbg-professional-section-label{font-size:1rem;font-weight:600;color:var(--charcoal-gray);text-transform:uppercase;letter-spacing:1px;text-align:left;margin-bottom:0}
+.anbg-professional-input-group{display:grid;grid-template-columns:1fr 2fr;border-radius:8px;overflow:hidden;border:2px solid var(--silver-gray);transition:.3s;box-shadow:var(--shadow-subtle)}
+.anbg-professional-input-group:focus-within{border-color:var(--corporate-red);box-shadow:var(--shadow-soft)}
+.anbg-professional-input-group input{padding:18px 20px;font-size:1.4rem;font-weight:600;border:none;background:var(--pure-white);color:var(--obsidian-black);border-right:1px solid var(--silver-gray);min-width:125px}
+.anbg-professional-input-group input:focus{outline:none}
+input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+input[type="number"]{-moz-appearance:textfield}
+
+.anbg-currency-selector-wrapper{display:flex;align-items:center;background:var(--pure-white);padding:0 15px;position:relative}
+.anbg-currency-selector-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.8em;
+    height: 0.5em;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23404040' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+.anbg-selector-flag{width:32px;height:24px;border-radius:4px;object-fit:cover;border:1px solid var(--steel-gray);margin-right:12px;flex-shrink:0}
+.anbg-currency-display{font-weight:600;font-size:1.1rem;color:var(--obsidian-black);margin-right:8px;min-width:45px}
+.anbg-currency-selector-wrapper select{background:transparent;color:var(--obsidian-black);border:none;padding:18px 0;font-size:1rem;font-weight:500;width:100%;appearance:none;opacity:0;position:absolute;top:0;left:0;right:0;bottom:0;cursor:pointer}
+
+.anbg-professional-swap-wrapper{display:flex;justify-content:center;align-items:center}
+.anbg-professional-swap-button{background:var(--gradient-green);border:none;border-radius:6px;width:50px;height:50px;cursor:pointer;transition:.3s;box-shadow:var(--shadow-subtle);display:flex;align-items:center;justify-content:center}
+.anbg-professional-swap-button:hover{transform:scale(1.05);box-shadow:var(--shadow-soft);background:var(--dark-green)}
+.anbg-professional-swap-button.flipping{transform:rotateY(180deg)}
+.anbg-professional-swap-button i{color:var(--pure-white);font-size:1.2rem}
+.anbg-professional-rate-summary{margin-top:30px;padding:20px;background:var(--gradient-corporate);border-radius:6px;text-align:center;color:var(--pure-white);font-size:1.25rem;font-weight:500;min-height:60px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-subtle)}
+.anbg-summary-currency{color:var(--silver-gray);font-size:1rem;margin:0 .4em;font-weight:400}
+.anbg-summary-amount{font-weight:600}
+.anbg-summary-amount-result{font-weight:700;color:var(--success-green);margin-left:.2em}
+
+/* — PROFESSIONAL MESSAGE — */
+.anbg-professional-message{
+margin-top:20px;padding:20px;background:var(--gradient-red);border-radius:6px;text-align:center;color:var(--pure-white);font-size:1.1rem;font-weight:500;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-medium);border:1px solid var(--dark-red);
+opacity:0;transform:translateY(-20px);max-height:0;overflow:hidden;transition:all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.anbg-professional-message.show{
+opacity:1;transform:translateY(0);max-height:100px;padding:20px;
+}
+.anbg-professional-message.hide{
+opacity:0;transform:translateY(-20px);max-height:0;padding:0 20px;
+}
+.anbg-professional-message i{
+margin-right:10px;font-size:1.2rem;color:var(--pearl-white);transition:transform 0.3s ease;
+}
+.anbg-professional-message.show i{
+transform:scale(1.1);
+}
+
+/* — SLIDESHOW — */
+.anbg-professional-rates-section{padding:40px 20px 80px;background:var(--pearl-white)}
+.anbg-professional-rates-header{text-align:center;margin-bottom:40px}
+.anbg-professional-rates-header h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:600;margin-bottom:15px}
+.anbg-professional-rates-header p{font-size:1.1rem;color:var(--steel-gray);max-width:600px;margin:0 auto;line-height:1.6}
+.anbg-professional-rates-container{background:var(--pure-white);border-radius:12px;box-shadow:var(--shadow-medium);position:relative;overflow:hidden;border:2px solid var(--corporate-red);padding-bottom:30px;max-width:1200px;margin:0 auto}
+#anbg-slides-wrapper{display:flex;transition:transform .6s ease-in-out}
+.anbg-professional-slide{min-width:100%;flex-shrink:0;padding:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.anbg-slideshow-nav{position:absolute;top:50%;transform:translateY(-50%);background:var(--obsidian-black);color:var(--pure-white);border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:.7;transition:.3s;z-index:10}
+.anbg-slideshow-nav:hover{opacity:1;background:var(--corporate-red);transform:translateY(-50%) scale(1.1)}
+.anbg-slideshow-nav-prev{left:15px}
+.anbg-slideshow-nav-next{right:15px}
+.anbg-professional-rate-card{background:var(--platinum-white);border-radius:8px;padding:25px;text-align:center;border:1px solid var(--silver-gray);box-shadow:var(--shadow-subtle);transition:.3s}
+.anbg-professional-rate-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft);border-color:var(--corporate-red)}
+.anbg-professional-flag{width:40px;height:30px;border-radius:4px;margin:0 auto 15px;object-fit:cover;box-shadow:var(--shadow-subtle);border:1px solid var(--steel-gray)}
+.anbg-professional-currency-code{font-size:1.3rem;font-weight:700;margin-bottom:15px;letter-spacing:-.01em}
+.anbg-professional-rate-grid{display:flex;flex-direction:column;gap:8px}
+.anbg-professional-rate-row{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;background:rgba(0,0,0,.02);border-radius:4px;transition:.3s}
+.anbg-professional-rate-row:hover{background:rgba(196,30,58,.05)}
+.anbg-professional-rate-label{color:var(--steel-gray);font-weight:500;font-size:.85rem;text-transform:uppercase;letter-spacing:.3px}
+.anbg-professional-rate-value{font-weight:700;font-size:1rem}
+.anbg-rate-buy{color:var(--dark-red)}
+.anbg-rate-sell{color:var(--corporate-red)}
+.anbg-rate-send{color:var(--bright-red)}
+
+/* — CONTACT — */
+.anbg-professional-contact-section{background:var(--gradient-corporate);padding:80px 20px;text-align:center;color:var(--pure-white)}
+.anbg-professional-contact-content{}
+.anbg-professional-commission-banner{background:var(--gradient-red);color:var(--pure-white);font-weight:700;font-size:1.5rem;padding:20px 40px;border-radius:6px;margin-bottom:40px;display:inline-block;text-transform:uppercase;letter-spacing:1px;box-shadow:var(--shadow-medium);transition:.3s}
+.anbg-professional-commission-banner:hover{transform:translateY(-2px);box-shadow:var(--shadow-strong)}
+.anbg-professional-contact-title{font-size:1.5rem;font-weight:600;margin-bottom:30px;max-width:800px;margin-left:auto; color:white; margin-right:auto}
+.anbg-professional-contact-buttons{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;max-width:800px;margin-left:auto;margin-right:auto}
+.anbg-professional-contact-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:6px;text-decoration:none;font-weight:600;font-size:1rem;transition:.3s;border:2px solid transparent;box-shadow:var(--shadow-subtle)}
+.anbg-professional-whatsapp-btn{background:#25D366;color:var(--pure-white)}
+.anbg-professional-whatsapp-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-soft)}
+.anbg-professional-phone-btn{background:transparent;color:var(--pure-white);border-color:var(--corporate-red)}
+.anbg-professional-phone-btn:hover{background:var(--corporate-red);transform:translateY(-2px);box-shadow:var(--shadow-soft)}
+
+/* — RESPONSIVE — */
+@media(max-width:1024px){
+.anbg-enhanced-hero-content{grid-template-columns:1fr;gap:50px;text-align:center}
+.anbg-hero-text-section{text-align:center}
+.anbg-professional-slide{grid-template-columns:repeat(2,1fr);gap:15px;padding:30px}
+.anbg-professional-converter-container{padding:30px}
+.anbg-professional-converter-grid{gap:25px}
+.anbg-hero-globe-bg {
+width: min(1400px, 130vw);
+top: 80px;
+}
+}
+@media(max-width:768px){
+.anbg-enhanced-hero{min-height:80vh;padding:60px 20px}
+.anbg-professional-converter-grid{grid-template-columns:1fr;gap:20px}
+.anbg-professional-swap-button{transform:rotate(90deg)}
+.anbg-professional-slide{grid-template-columns:1fr!important;gap:0;padding:25px;justify-items:center}
+.anbg-professional-rate-card{max-width:280px;width:100%}
+.anbg-slideshow-nav{width:35px;height:35px}
+.anbg-slideshow-nav-prev{left:10px}.anbg-slideshow-nav-next{right:10px}
+.anbg-hero-globe-bg {
+width: min(1200px, 150vw);
+top: 60px;
+}
+}
+@media(max-width:480px){
+.anbg-professional-converter-container{padding:20px}
+.anbg-professional-input-group input{padding:14px 16px;font-size:1.2rem}
+.anbg-currency-selector-wrapper{padding:0 12px}
+.anbg-currency-display{font-size:1rem;min-width:40px}
+.anbg-professional-rate-card{max-width:260px}
+}
+    </style>
+</head>
+<body>
+
+<div class="anbg-professional-exchange">
+
+<!-- GLOBE BACKGROUND -->
+<div class="anbg-hero-globe-bg" aria-hidden="true">
+    <img src="https://img.freepik.com/premium-vector/world-map-globe-vector-illustration-world-map-symbol-isolated-vector-eps10_532800-267.jpg" alt="Globe Background" class="anbg-hero-globe-image">
+</div>
+
+<!-- HERO -->
+<section class="anbg-enhanced-hero">
+    <div class="anbg-enhanced-hero-container">
+        <div class="anbg-enhanced-hero-content">
+            <div class="anbg-hero-text-section">
+                <h1 class="anbg-hero-headline">Currency Exchange <span class="highlight">Made Simple</span></h1>
+                <p class="anbg-hero-subtitle">Get real-time exchange rates, send money worldwide, and enjoy zero-commission fees with Cyprus's trusted exchange partner.</p>
+                <div class="anbg-hero-features">
+                    <div class="anbg-hero-feature"><i class="fas fa-check-circle"></i><span>Zero Commission on All Exchanges</span></div>
+                    <div class="anbg-hero-feature"><i class="fas fa-clock"></i><span>Real-Time Market Rates</span></div>
+                    <div class="anbg-hero-feature"><i class="fas fa-shield-alt"></i><span>Secure & Licensed Service</span></div>
+                    <div class="anbg-hero-feature"><i class="fas fa-globe"></i><span>All Currencies Available</span></div>
+                </div>
+                <div class="anbg-hero-cta">
+                    <button class="anbg-hero-button" onclick="document.querySelector('.anbg-professional-converter-section').scrollIntoView({behavior:'smooth'})">Start Converting</button>
+                    <div class="anbg-professional-live-indicator">
+                        <div class="anbg-professional-live-dot" id="live-dot"></div>
+                        <span class="anbg-professional-live-text" id="live-text">Loading Rates...</span>
+                    </div>
+                </div>
+                <div class="anbg-hero-contact">
+                    <div class="anbg-hero-contact-item"><i class="fas fa-phone"></i><span>96331517</span></div>
+                    <div class="anbg-hero-contact-item"><i class="fas fa-star"></i><span>0% Commission</span></div>
+                    <div class="anbg-hero-contact-item" style="cursor:pointer" onclick="window.pull && window.pull()"><i class="fas fa-sync"></i><span>Refresh Rates</span></div>
+                </div>
+            </div>
+            <div class="anbg-hero-visual-section">
+                <div class="anbg-hero-stats-grid">
+                    <div class="anbg-hero-stat"><span class="anbg-hero-stat-number" id="anbg-currency-count">--</span><span class="anbg-hero-stat-label">Currencies</span></div>
+                    <div class="anbg-hero-stat"><span class="anbg-hero-stat-number">0%</span><span class="anbg-hero-stat-label">Commission</span></div>
+                    <div class="anbg-hero-stat"><span class="anbg-hero-stat-number">5★</span><span class="anbg-hero-stat-label">Rating</span></div>
+                    <div class="anbg-hero-stat"><span class="anbg-hero-stat-number">10-8</span><span class="anbg-hero-stat-label">Daily Hours</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="anbg-section-divider"></div>
+
+<!-- CONVERTER -->
+<section class="anbg-professional-converter-section">
+    <div class="anbg-professional-section-container">
+        <header class="anbg-professional-converter-header">
+            <h2>Currency Converter</h2>
+            <p>Real-time exchange rates with competitive pricing and zero commission</p>
+        </header>
+        <div class="anbg-professional-converter-container">
+            <div class="anbg-professional-converter-grid">
+                <div class="anbg-professional-input-section">
+                    <div class="anbg-professional-section-label">FROM</div>
+                    <div class="anbg-professional-input-group">
+                        <input type="number" id="anbg-from-amount" value="100" placeholder="100.00">
+                        <div class="anbg-currency-selector-wrapper">
+                            <img id="anbg-from-flag" src="https://flagcdn.com/w80/us.png" alt="" class="anbg-selector-flag">
+                            <div class="anbg-currency-display" id="anbg-from-display">USD</div>
+                            <select id="anbg-from-currency"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="anbg-professional-swap-wrapper">
+                    <button class="anbg-professional-swap-button" id="anbg-swap-button" aria-label="Swap"><i class="fas fa-exchange-alt"></i></button>
+                </div>
+                <div class="anbg-professional-input-section">
+                    <div class="anbg-professional-section-label">TO</div>
+                    <div class="anbg-professional-input-group">
+                        <input type="number" id="anbg-to-amount" placeholder="0.00">
+                        <div class="anbg-currency-selector-wrapper">
+                            <img id="anbg-to-flag" src="https://flagcdn.com/w80/eu.png" alt="" class="anbg-selector-flag">
+                            <div class="anbg-currency-display" id="anbg-to-display">EUR</div>
+                            <select id="anbg-to-currency"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="anbg-professional-rate-summary" id="anbg-rate-summary">Enter an amount to see the exchange rate</div>
+            <div class="anbg-professional-message hide" id="anbg-professional-message">
+                <i class="fas fa-phone"></i>To get better rates please contact us
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RATES SLIDESHOW -->
+<section class="anbg-professional-rates-section">
+    <div class="anbg-professional-section-container">
+        <header class="anbg-professional-rates-header">
+            <h2>Current Exchange Rates</h2>
+            <p>Live rates for major currencies updated in real-time</p>
+        </header>
+        <div class="anbg-professional-rates-container">
+            <button class="anbg-slideshow-nav anbg-slideshow-nav-prev" id="anbg-prev-btn" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+            <button class="anbg-slideshow-nav anbg-slideshow-nav-next" id="anbg-next-btn" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+            <div id="anbg-slides-wrapper"></div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="anbg-professional-contact-section">
+    <div class="anbg-professional-contact-content">
+        <div class="anbg-professional-commission-banner">0% Commission Guarantee</div>
+        <h2 class="anbg-professional-contact-title">Ready to Exchange Currency?</h2>
+        <div class="anbg-professional-contact-buttons">
+            <a class="anbg-professional-contact-btn anbg-professional-whatsapp-btn" href="https://wa.me/35796331517" target="_blank"><i class="fab fa-whatsapp"></i><span>WhatsApp Now</span></a>
+            <a class="anbg-professional-contact-btn anbg-professional-phone-btn" href="tel:96331517"><i class="fas fa-phone"></i><span>Call 96331517</span></a>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<script>
+/* ———————————— JAVASCRIPT LOGIC ———————————— */
+document.addEventListener('DOMContentLoaded',()=>{
+const SHEET = 'https://api.sheetbest.com/sheets/f21f26f3-dd72-4ca1-8c3e-86e8fb1ebec4';
+const POLL = 30000;
+const rates = {};
+let timerPull;
+
+const fallback = {
+EUR:{name:'Euro',flag:'eu',buy:1,sell:1,send:1},
+USD:{name:'US Dollar',flag:'us',buy:0.92,sell:0.94,send:0.94},
+GBP:{name:'British Pound',flag:'gb',buy:1.13,sell:1.15,send:1.15},
+TRY:{name:'Turkish Lira',flag:'tr',buy:48,sell:47,send:47}
+};
+
+function formatNumber(num) {
+if (typeof num !== 'number' || isNaN(num)) return '0';
+return parseFloat(num.toFixed(10)).toString();
+}
+
+function convertToEurEquivalent(amount, currency) {
+if (!amount || amount <= 0) return 0;
+if (currency === 'EUR') return amount;
+const isTurkishLira = (code) => code && (code.toUpperCase() === 'TRY');
+if (currency !== 'EUR') {
+const buyRate = rates[currency]?.buy;
+return isTurkishLira(currency) ? (buyRate ? amount / buyRate : 0) : (buyRate ? amount * buyRate : 0);
+}
+return 0;
+}
+
+window.pull = function pull(){
+fetch(`${SHEET}?v=${Date.now()}`, { method: 'GET', headers: {'Accept': 'application/json'}, mode: 'cors' })
+.then(r=>{
+if(!r.ok) { return Promise.reject(r.status); }
+return r.json();
+})
+.then(rows=>{
+console.log('Loaded currencies:', rows.length);
+mapRows(rows);
+const dot = document.getElementById('live-dot');
+const text = document.getElementById('live-text');
+if(dot) dot.style.animation = 'none';
+if(text) text.textContent = 'Live Rates';
+if(!window.__booted) bootUI();
+updateDynamicContent();
+})
+.catch(err=>{
+console.error('SheetBest error:', err);
+const dot = document.getElementById('live-dot');
+const text = document.getElementById('live-text');
+if(dot) { dot.style.animation = 'none'; dot.style.background = '#ffa500';}
+if(text) text.textContent = 'Offline Mode';
+Object.assign(rates,fallback);
+if(!window.__booted) bootUI();
+updateDynamicContent();
+});
+}
+
+function mapRows(rows){
+Object.keys(rates).forEach(k=>delete rates[k]);
+rows.forEach(row=>{
+const Code = row.Code || row.code;
+const Name = row.Name || row.name;
+const Flag = row.Flag || row.flag;
+const Buy = row.Buy || row.buy;
+const Sell = row.Sell || row.sell;
+const Send = row.Send || row.send;
+if (Code) {
+rates[Code] = {
+name: Name||Code,
+flag: (Flag||'').toLowerCase(),
+buy: Buy?+Buy:undefined,
+sell: Sell?+Sell:undefined,
+send: Send?+Send:undefined
+};
+}
+});
+console.log('Loaded rates for:', Object.keys(rates).join(', '));
+}
+
+pull();
+timerPull = setInterval(pull,POLL);
+
+function updateDynamicContent() {
+    populateSelectors();
+    performConversion();
+    buildSlides();
+    const currencyCountEl = document.getElementById('anbg-currency-count');
+    if (currencyCountEl) {
+        const count = Object.keys(rates).length - 1;
+        currencyCountEl.textContent = `${count}+`;
+    }
+}
+
+window.bootUI = function bootUI(){
+window.__booted = true;
+const $fromAmt = document.getElementById('anbg-from-amount');
+const $toAmt = document.getElementById('anbg-to-amount');
+const $fromSel = document.getElementById('anbg-from-currency');
+const $toSel = document.getElementById('anbg-to-currency');
+const $fromDisplay = document.getElementById('anbg-from-display');
+const $toDisplay = document.getElementById('anbg-to-display');
+const $swap = document.getElementById('anbg-swap-button');
+const $fromFlag= document.getElementById('anbg-from-flag');
+const $toFlag = document.getElementById('anbg-to-flag');
+
+$fromSel.value = 'USD';
+$toSel.value = 'EUR';
+$fromDisplay.textContent = 'USD';
+$toDisplay.textContent = 'EUR';
+setFlag('USD',$fromFlag);
+setFlag('EUR',$toFlag);
+
+$fromAmt.oninput = ()=>{ reverse=false; performConversion(); };
+$toAmt.oninput = ()=>{ reverse=true; performConversion(); };
+$fromSel.onchange= ()=>{
+$fromDisplay.textContent = $fromSel.value;
+setFlag($fromSel.value,$fromFlag);
+reverse=false; performConversion();
+};
+$toSel.onchange = ()=>{
+$toDisplay.textContent = $toSel.value;
+setFlag($toSel.value,$toFlag);
+reverse=false; performConversion();
+};
+$swap.onclick = ()=> {
+$swap.classList.add('flipping');
+setTimeout(()=>{
+const fromCode = $fromSel.value;
+const toCode = $toSel.value;
+[ $fromSel.value, $toSel.value ] = [ toCode, fromCode ];
+[ $fromDisplay.textContent, $toDisplay.textContent ] = [ toCode, fromCode ];
+setFlag($fromSel.value,$fromFlag); setFlag($toSel.value,$toFlag);
+reverse = false;
+performConversion();
+$swap.classList.remove('flipping');
+},150);
+};
+
+const $prev = document.getElementById('anbg-prev-btn');
+const $next = document.getElementById('anbg-next-btn');
+let manual=false;
+$prev.onclick = ()=>{ manual=true; prevSlide(); setTimeout(()=>manual=false,8000); };
+$next.onclick = ()=>{ manual=true; nextSlide(); setTimeout(()=>manual=false,8000); };
+}
+
+let reverse=false;
+const flagEmoji = c=>!c?'🏳️':c.toLowerCase()==='eu'?'🇪🇺':String.fromCodePoint(...c.toUpperCase().split('').map(ch=>127397+ch.charCodeAt(0)));
+const setFlag = (code,img)=>{ const d=rates[code]; if(d?.flag) img.src=`https://flagcdn.com/w80/${d.flag}.png`; img.alt=d?.name||code; };
+
+function populateSelectors() {
+    const $fromSel = document.getElementById('anbg-from-currency');
+    const $toSel = document.getElementById('anbg-to-currency');
+    const currentFrom = $fromSel.value;
+    const currentTo = $toSel.value;
+    $fromSel.innerHTML = '';
+    $toSel.innerHTML = '';
+
+    const currencyCodes = Object.keys(rates).filter(c => c.toUpperCase() !== 'TL').sort();
+
+    currencyCodes.forEach(c => {
+        const d = rates[c];
+        const optionText = `${flagEmoji(d.flag)} ${d.name} (${c})`;
+        $fromSel.add(new Option(optionText, c));
+        $toSel.add(new Option(optionText, c));
+    });
+
+    $fromSel.value = currencyCodes.includes(currentFrom) ? currentFrom : 'USD';
+    $toSel.value = currencyCodes.includes(currentTo) ? currentTo : 'EUR';
+    document.getElementById('anbg-from-display').textContent = $fromSel.value;
+    document.getElementById('anbg-to-display').textContent = $toSel.value;
+    setFlag($fromSel.value, document.getElementById('anbg-from-flag'));
+    setFlag($toSel.value, document.getElementById('anbg-to-flag'));
+}
+
+window.performConversion = ()=> {
+const $fromAmt = document.getElementById('anbg-from-amount');
+const $toAmt = document.getElementById('anbg-to-amount');
+const $fromSel = document.getElementById('anbg-from-currency');
+const $toSel = document.getElementById('anbg-to-currency');
+const $summary = document.getElementById('anbg-rate-summary');
+const $message = document.getElementById('anbg-professional-message');
+
+const fc = $fromSel.value;
+const tc = $toSel.value;
+let fa = +$fromAmt.value||0;
+let ta = +$toAmt.value||0;
+
+if(!fa && !ta){
+$summary.textContent = 'Enter an amount to see the exchange rate';
+$fromAmt.value = ''; $toAmt.value = '';
+$message.classList.remove('show');
+$message.classList.add('hide');
+return;
+}
+
+if(!reverse){
+ta = convertAmount(fa, fc, tc);
+$toAmt.value = isNaN(ta) ? '' : ta.toFixed(2);
+} else {
+fa = inverseConvertAmount(ta, fc, tc);
+$fromAmt.value = isNaN(fa) ? '' : fa.toFixed(2);
+}
+
+const finalFrom = +$fromAmt.value || 0;
+const finalTo = +$toAmt.value || 0;
+
+const eurEquivalent = convertToEurEquivalent(finalFrom, fc);
+if (eurEquivalent >= 3999) {
+setTimeout(() => {
+$message.classList.remove('hide');
+$message.classList.add('show');
+}, 300);
+} else {
+$message.classList.remove('show');
+$message.classList.add('hide');
+}
+
+$summary.innerHTML =
+`<span class="anbg-summary-amount">${finalFrom.toLocaleString(undefined,{minimumFractionDigits:2, maximumFractionDigits:2})}</span>` +
+`<span class="anbg-summary-currency">${fc}</span> = ` +
+`<span class="anbg-summary-amount-result">${finalTo.toLocaleString(undefined,{minimumFractionDigits:2, maximumFractionDigits:2})}</span>` +
+`<span class="anbg-summary-currency">${tc}</span>`;
+};
+
+function convertAmount(fromAmount, fromCurrency, toCurrency) {
+if (!fromAmount || fromAmount <= 0) return 0;
+if (fromCurrency === toCurrency) return fromAmount;
+const isTurkishLira = (code) => code && (code.toUpperCase() === 'TRY');
+if (fromCurrency !== 'EUR' && toCurrency === 'EUR') {
+const buyRate = rates[fromCurrency]?.buy;
+return isTurkishLira(fromCurrency) ? (buyRate ? fromAmount / buyRate : 0) : (buyRate ? fromAmount * buyRate : 0);
+}
+if (fromCurrency === 'EUR' && toCurrency !== 'EUR') {
+const sellRate = rates[toCurrency]?.sell;
+return isTurkishLira(toCurrency) ? (sellRate ? fromAmount * sellRate : 0) : (sellRate ? fromAmount / sellRate : 0);
+}
+if (fromCurrency !== 'EUR' && toCurrency !== 'EUR') {
+let eurAmount;
+const buyRate = rates[fromCurrency]?.buy;
+eurAmount = isTurkishLira(fromCurrency) ? (buyRate ? fromAmount / buyRate : 0) : (buyRate ? fromAmount * buyRate : 0);
+const sellRate = rates[toCurrency]?.sell;
+return isTurkishLira(toCurrency) ? (sellRate ? eurAmount * sellRate : 0) : (sellRate ? eurAmount / sellRate : 0);
+}
+return 0;
+}
+function inverseConvertAmount(toAmount, fromCurrency, toCurrency) {
+if (!toAmount || toAmount <= 0) return 0;
+if (fromCurrency === toCurrency) return toAmount;
+const isTurkishLira = (code) => code === 'TRY';
+if (fromCurrency !== 'EUR' && toCurrency === 'EUR') {
+const buyRate = rates[fromCurrency]?.buy;
+return isTurkishLira(fromCurrency) ? (buyRate ? toAmount * buyRate : 0) : (buyRate ? toAmount / buyRate : 0);
+}
+if (fromCurrency === 'EUR' && toCurrency !== 'EUR') {
+const sellRate = rates[toCurrency]?.sell;
+return isTurkishLira(toCurrency) ? (sellRate ? toAmount / sellRate : 0) : (sellRate ? toAmount * sellRate : 0);
+}
+if (fromCurrency !== 'EUR' && toCurrency !== 'EUR') {
+let eurAmount;
+const sellRate = rates[toCurrency]?.sell;
+eurAmount = isTurkishLira(toCurrency) ? (sellRate ? toAmount / sellRate : 0) : (sellRate ? toAmount * sellRate : 0);
+const buyRate = rates[fromCurrency]?.buy;
+return isTurkishLira(fromCurrency) ? (buyRate ? eurAmount * buyRate : 0) : (buyRate ? eurAmount / buyRate : 0);
+}
+return 0;
+}
+
+
+let cur=0, total=0, timerSlide;
+function showSlide(i){ const $slides = document.getElementById('anbg-slides-wrapper'); if (!$slides) return; cur=(i+total)%total; $slides.style.transform = `translateX(${-100*cur}%)`; }
+function nextSlide(){ showSlide(cur+1); }
+window.prevSlide = function(){ showSlide(cur-1); }
+
+window.buildSlides = ()=> {
+const $slides = document.getElementById('anbg-slides-wrapper');
+if (!$slides) return;
+const list = Object.keys(rates).filter(c=>c!=='EUR' && c.toUpperCase() !== 'TL').sort((a,b)=>{
+if(a==='USD') return -1; if(b==='USD') return 1; if(a==='GBP') return -1; if(b==='GBP') return 1;
+if(a.toUpperCase()==='TRY') return -1; if(b.toUpperCase()==='TRY') return 1;
+return a.localeCompare(b);
+});
+const per = window.innerWidth<=768 ? (window.innerWidth <= 480 ? 1 : 2) : 4;
+let html='', buf='';
+list.forEach((code,i)=>{
+const d = rates[code]; let rows='';
+if (code.toUpperCase() === 'TRY') {
+    rows += `<div class="anbg-professional-rate-row"><span class="anbg-professional-rate-label">We Buy 1 EUR</span><span class="anbg-professional-rate-value anbg-rate-buy">${d.sell ? formatNumber(d.sell) + ' ' + code : 'N/A'}</span></div>`;
+    rows += `<div class="anbg-professional-rate-row"><span class="anbg-professional-rate-label">We Sell 1 EUR</span><span class="anbg-professional-rate-value anbg-rate-sell">${d.buy ? formatNumber(d.buy) + ' ' + code : 'N/A'}</span></div>`;
+    rows += `<div class="anbg-professional-rate-row"><span class="anbg-professional-rate-label">Send 1 EUR</span><span class="anbg-professional-rate-value anbg-rate-send">${d.send ? formatNumber(d.send) + ' ' + code : 'N/A'}</span></div>`;
+} else {
+    rows += `<div class="anbg-professional-rate-row"><span class="anbg-professional-rate-label">Buy 1 ${code}</span><span class="anbg-professional-rate-value anbg-rate-buy">${d.buy ? formatNumber(d.buy) + ' EUR' : 'N/A'}</span></div>`;
+    rows += `<div class="anbg-professional-rate-row"><span class="anbg-professional-rate-label">Sell 1 ${code}</span><span class="anbg-professional-rate-value anbg-rate-sell">${d.sell ? formatNumber(d.sell) + ' EUR' : 'N/A'}</span></div>`;
+    rows += `<div class="anbg-professional-rate-row"><span class="anbg-professional-rate-label">Send 1 EUR</span><span class="anbg-professional-rate-value anbg-rate-send">${d.send ? formatNumber(d.send) + ' ' + code : 'N/A'}</span></div>`;
+}
+buf+=`<div class="anbg-professional-rate-card"><img src="https://flagcdn.com/w80/${d.flag}.png" alt="${d.name}" class="anbg-professional-flag"><div class="anbg-professional-currency-code">${code}</div><div class="anbg-professional-rate-grid">${rows}</div></div>`;
+if((i+1)%per===0||i===list.length-1){ html+=`<div class="anbg-professional-slide">${buf}</div>`; buf=''; }
+});
+$slides.innerHTML = html;
+total = Math.ceil(list.length/per);
+cur = 0;
+showSlide(0);
+const $prev = document.getElementById('anbg-prev-btn');
+const $next = document.getElementById('anbg-next-btn');
+if(total<=1){ $prev.style.display=$next.style.display='none'; } else { $prev.style.display=$next.style.display='flex'; }
+clearInterval(timerSlide);
+timerSlide = setInterval(()=>{ if(!window.manual) nextSlide(); },8000);
+};
+window.addEventListener('resize',()=> { clearTimeout(window.__rs); window.__rs = setTimeout(buildSlides, 250); });
+window.addEventListener('beforeunload',()=> clearInterval(timerPull));
+});
+</script>
+
+</body>
+</html>

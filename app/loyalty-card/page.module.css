@@ -1,0 +1,16 @@
+.loyaltyPage {
+  background: var(--pearl-white);
+  min-height: 100vh;
+}
+
+.container {
+  height: 1470px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.loyaltyIframe {
+  border: none;
+  position: relative;
+  top: -130px;
+}

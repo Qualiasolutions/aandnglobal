@@ -1,0 +1,54 @@
+.container {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--obsidian-black);
+  margin-bottom: 15px;
+}
+
+.message {
+  font-size: 1.1rem;
+  color: var(--steel-gray);
+  margin-bottom: 30px;
+  max-width: 400px;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.button {
+  background: var(--gradient-red);
+  color: var(--pure-white);
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: var(--dark-red);
+  transform: translateY(-2px);
+}
+
+.link {
+  color: var(--corporate-red);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

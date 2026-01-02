@@ -1,0 +1,81 @@
+.section {
+  background: var(--gradient-corporate);
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--pure-white);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.banner {
+  background: var(--gradient-red);
+  color: var(--pure-white);
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 20px 40px;
+  border-radius: 6px;
+  margin-bottom: 40px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: var(--shadow-medium);
+  transition: all 0.3s ease;
+}
+
+.banner:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: var(--pure-white);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-subtle);
+}
+
+.whatsappButton {
+  background: #25D366;
+  color: var(--pure-white);
+}
+
+.whatsappButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.phoneButton {
+  background: transparent;
+  color: var(--pure-white);
+  border-color: var(--corporate-red);
+}
+
+.phoneButton:hover {
+  background: var(--corporate-red);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}

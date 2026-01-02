@@ -1,0 +1,274 @@
+.hero {
+  background: var(--pure-white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  position: relative;
+}
+
+.globeBg {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1600px, 130vw);
+  height: auto;
+  z-index: 1;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.globeImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.textSection {
+  text-align: left;
+}
+
+.headline {
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: var(--steel-gray);
+  font-weight: 300;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--charcoal-gray);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.featureIcon {
+  color: var(--corporate-red);
+  font-size: 1.2rem;
+  width: 20px;
+}
+
+.cta {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.ctaButton {
+  background: var(--gradient-red);
+  color: var(--pure-white);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-medium);
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: var(--dark-red);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
+}
+
+.liveIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--platinum-white);
+  border: 1px solid var(--silver-gray);
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  background: var(--corporate-red);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.liveText {
+  color: var(--charcoal-gray);
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.contactInfo {
+  display: flex;
+  gap: 25px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--steel-gray);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.contactIcon {
+  color: var(--corporate-red);
+  font-size: 1rem;
+  width: 16px;
+}
+
+.refreshButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--steel-gray);
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.refreshButton:hover {
+  color: var(--corporate-red);
+}
+
+.visualSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  background: var(--platinum-white);
+  border: 1px solid var(--silver-gray);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: var(--shadow-medium);
+}
+
+.stat {
+  text-align: center;
+  padding: 20px;
+  background: var(--pure-white);
+  border-radius: 8px;
+  border: 1px solid var(--silver-gray);
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--corporate-red);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: var(--steel-gray);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+
+  .textSection {
+    text-align: center;
+  }
+
+  .subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .features {
+    align-items: center;
+  }
+
+  .cta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .liveIndicator {
+    margin-left: 0;
+  }
+
+  .contactInfo {
+    justify-content: center;
+  }
+
+  .globeBg {
+    width: min(1400px, 130vw);
+    top: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 80vh;
+    padding: 60px 20px;
+  }
+
+  .globeBg {
+    width: min(1200px, 150vw);
+    top: 60px;
+  }
+}

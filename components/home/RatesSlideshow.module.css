@@ -1,0 +1,204 @@
+.section {
+  padding: 40px 20px 80px;
+  background: var(--pearl-white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: var(--steel-gray);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.slideshowContainer {
+  background: var(--pure-white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--corporate-red);
+  padding-bottom: 30px;
+}
+
+.slidesWrapper {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--obsidian-black);
+  color: var(--pure-white);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.navButton:hover {
+  opacity: 1;
+  background: var(--corporate-red);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prevButton {
+  left: 15px;
+}
+
+.nextButton {
+  right: 15px;
+}
+
+.rateCard {
+  background: var(--platinum-white);
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid var(--silver-gray);
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.3s ease;
+}
+
+.rateCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--corporate-red);
+}
+
+.flag {
+  width: 40px;
+  height: 30px;
+  border-radius: 4px;
+  margin: 0 auto 15px;
+  object-fit: cover;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid var(--steel-gray);
+}
+
+.currencyCode {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: -0.01em;
+}
+
+.rateGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rateRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.rateRow:hover {
+  background: rgba(196, 30, 58, 0.05);
+}
+
+.rateLabel {
+  color: var(--steel-gray);
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.rateValue {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.rateBuy {
+  color: var(--dark-red);
+}
+
+.rateSell {
+  color: var(--corporate-red);
+}
+
+.rateSend {
+  color: var(--bright-red);
+}
+
+@media (max-width: 1024px) {
+  .slide {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 25px;
+    justify-items: center;
+  }
+
+  .rateCard {
+    max-width: 280px;
+    width: 100%;
+  }
+
+  .navButton {
+    width: 35px;
+    height: 35px;
+  }
+
+  .prevButton {
+    left: 10px;
+  }
+
+  .nextButton {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rateCard {
+    max-width: 260px;
+  }
+}

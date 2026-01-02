@@ -1,0 +1,114 @@
+.header {
+  background-color: var(--pure-white);
+  border-bottom: 1px solid var(--silver-gray);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--obsidian-black);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.logoHighlight {
+  color: var(--corporate-red);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  margin: 0;
+}
+
+.navLink {
+  font-family: 'Montserrat', var(--font-family);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--obsidian-black);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  padding: 8px 0;
+}
+
+.navLink:hover {
+  color: var(--corporate-red);
+  opacity: 0.8;
+}
+
+.navLinkActive {
+  color: var(--corporate-red);
+  font-weight: 700;
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--obsidian-black);
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menuButton {
+    display: block;
+  }
+
+  .nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--pure-white);
+    padding: 20px;
+    border-bottom: 1px solid var(--silver-gray);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .navOpen {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .navLink {
+    font-size: 16px;
+  }
+}

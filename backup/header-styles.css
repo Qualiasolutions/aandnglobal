@@ -1,0 +1,92 @@
+/* ========================================
+   A&N Global - Custom Header Styles
+   ======================================== */
+
+/* OPTIONAL: Adjusts the container width if the logo gets cut off */
+.header-title-logo a {
+  max-width: 80% !important;
+}
+
+/* ——— 1. Main Navigation Links (Desktop) ——— */
+/* This targets the text for your main menu items like "Home", "About", "Contact" */
+.header-nav-list .header-nav-item a {
+  font-family: 'Montserrat', sans-serif; /* Change to your desired font family */
+  font-size: 16px;                       /* Adjust font size */
+  font-weight: 600;                      /* 400=normal, 600=semi-bold, 700=bold */
+  color: #111111;                        /* Change the text color */
+  text-transform: uppercase;             /* Options: uppercase, capitalize, none */
+  letter-spacing: 1.2px;                 /* Adjust spacing between letters */
+
+  /* Adds a smooth transition for the hover effect */
+  transition: all 0.2s ease-in-out;
+}
+
+/* ——— 2. Navigation Link HOVER Effect ——— */
+/* This controls what happens when you mouse over a navigation link */
+.header-nav-list .header-nav-item a:hover {
+  color: #c41e3a; /* The color the text changes to on hover */
+  opacity: 0.8;   /* Optional: makes it slightly transparent on hover */
+
+  /* --- Optional Underline Effect --- */
+  /* text-decoration: underline; */
+  /* text-underline-offset: 5px; */
+}
+
+/* ——— 3. ACTIVE Navigation Link (Current Page) ——— */
+/* This styles the link for the page the visitor is currently on */
+.header-nav-list .header-nav-item--active a {
+  color: #c41e3a;    /* A different color to show it's the active page */
+  font-weight: 700;  /* Make it bolder than the other links */
+
+  /* --- Optional: Add a line under the active link --- */
+  /* border-bottom: 2px solid #c41e3a; */
+  /* padding-bottom: 4px; */
+}
+
+/* ——— 4. Site Title (Text Version) ——— */
+/* Use this if you are using text for your site title instead of a logo */
+.header-title-text a {
+  font-family: 'Georgia', serif; /* Change to your desired font */
+  font-size: 28px;               /* Adjust font size */
+  font-weight: 700;              /* Adjust font weight */
+  color: #000000;                /* Adjust color */
+  letter-spacing: 1px;           /* Adjust letter spacing */
+}
+
+/* ——— 5. Header Button ——— */
+/* This targets the button in your header, if you have one */
+.header-button-wrap .sqs-block-button-element {
+  color: #ffffff !important;              /* Button text color */
+  background-color: #c41e3a !important;   /* Button background color */
+  border-color: #c41e3a !important;       /* Button border color */
+  border-radius: 5px !important;          /* Adjust for rounded corners (0px = sharp) */
+  padding: 12px 24px !important;          /* Adjust button size (vertical and horizontal padding) */
+  font-weight: 600;                       /* Button text weight */
+
+  transition: all 0.2s ease-in-out;
+}
+
+/* Header Button HOVER effect */
+.header-button-wrap .sqs-block-button-element:hover {
+  background-color: #a01729 !important; /* Darker color on hover */
+  border-color: #a01729 !important;
+  transform: translateY(-2px);          /* Optional: makes the button lift up slightly */
+}
+
+/* ——— 6. General Header Styling ——— */
+/* This targets the entire header bar */
+header#header {
+  background-color: #ffffff; /* Header background color */
+
+  /* --- Optional: Add a subtle line below the header --- */
+  /* border-bottom: 1px solid #e0e0e0; */
+
+  /* --- Optional: Add a subtle shadow below the header --- */
+  /* box-shadow: 0 2px 6px rgba(0,0,0,0.05); */
+}
+
+/* ——— 7. Mobile Menu Icon ("Hamburger") ——— */
+/* This styles the three lines of the mobile menu icon */
+.header-burger-icon .icon {
+  stroke: #111111; /* Change the color of the hamburger icon lines */
+}
