@@ -1,9 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { COMPANY_INFO, NAV_LINKS } from '@/lib/constants';
 import styles from './Footer.module.css';
+
+const LOGO_URL = 'https://images.squarespace-cdn.com/content/v1/68725aed7b2ed84dc3befbf4/89e7ce45-feda-4391-af4a-5a80ca7336be/Untitled+design+%2822%29.png?format=1500w';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,9 +17,15 @@ export default function Footer() {
         <div className={styles.grid}>
           {/* Company Info */}
           <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>
-              A&N <span className={styles.highlight}>Global</span>
-            </h3>
+            <div className={styles.logoContainer}>
+              <Image
+                src={LOGO_URL}
+                alt="A&N Global"
+                width={150}
+                height={50}
+                className={styles.logoImage}
+              />
+            </div>
             <p className={styles.description}>
               Your trusted currency exchange partner in Nicosia, Cyprus.
               Zero commission on all exchanges.

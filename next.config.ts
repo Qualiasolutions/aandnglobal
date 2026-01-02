@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         hostname: 'img.freepik.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.squarespace-cdn.com',
+        pathname: '/**',
+      },
     ],
   },
   async headers() {

@@ -27,6 +27,17 @@
   margin-bottom: 15px;
 }
 
+.logoContainer {
+  margin-bottom: 15px;
+}
+
+.logoImage {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
 .highlight {
   color: var(--corporate-red);
 }
